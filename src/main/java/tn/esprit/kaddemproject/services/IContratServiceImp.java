@@ -7,18 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tn.esprit.kaddemproject.dto.ContractDto;
+
 import tn.esprit.kaddemproject.entities.Contrat;
 import tn.esprit.kaddemproject.entities.Equipe;
 import tn.esprit.kaddemproject.entities.Etudiant;
 import tn.esprit.kaddemproject.generic.IGenericServiceImp;
-import tn.esprit.kaddemproject.mappers.ContractMapper;
 import tn.esprit.kaddemproject.repositories.ContratRepository;
 import tn.esprit.kaddemproject.repositories.EtudiantRepository;
 import tn.esprit.kaddemproject.util.HelperClass;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
@@ -36,7 +34,7 @@ public class IContratServiceImp extends IGenericServiceImp<Contrat,Integer> impl
 
 
     @Override
-    public ContractDto affectContratToEtudiant(Integer idContrat, String nomE, String prenomE) {
+    public Contrat affectContratToEtudiant(Integer idContrat, String nomE, String prenomE) {
 
         Contrat contrat = this.retrieveById(idContrat);
         Etudiant etudiant = etudiantRepository.findByNomEAndPrenomE(nomE,prenomE);
@@ -56,7 +54,7 @@ public class IContratServiceImp extends IGenericServiceImp<Contrat,Integer> impl
 
         }
 
-        return ContractMapper.mapToContractDto(contrat);
+        return contrat;
     }
 
     @Override

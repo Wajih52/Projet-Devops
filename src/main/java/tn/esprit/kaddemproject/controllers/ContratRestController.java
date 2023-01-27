@@ -3,7 +3,6 @@ package tn.esprit.kaddemproject.controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.kaddemproject.dto.ContractDto;
 import tn.esprit.kaddemproject.entities.Contrat;
 import tn.esprit.kaddemproject.entities.Equipe;
 import tn.esprit.kaddemproject.entities.Specialite;
@@ -24,7 +23,7 @@ public class ContratRestController extends GenericController<Contrat,Integer> {
 
 
     @PostMapping("/{idContrat}/{nomE}/{prenomE}")
-    public ContractDto affectContratToEtudiant (@PathVariable Integer idContrat,
+    public Contrat affectContratToEtudiant (@PathVariable Integer idContrat,
                                                 @PathVariable String nomE,
                                                 @PathVariable String prenomE){
         return contratService.affectContratToEtudiant(idContrat,nomE,prenomE);

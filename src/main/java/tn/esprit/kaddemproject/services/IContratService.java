@@ -1,6 +1,5 @@
 package tn.esprit.kaddemproject.services;
 
-import tn.esprit.kaddemproject.dto.ContractDto;
 import tn.esprit.kaddemproject.entities.Contrat;
 import tn.esprit.kaddemproject.entities.Departement;
 import tn.esprit.kaddemproject.generic.IGenericService;
@@ -10,7 +9,7 @@ import java.util.Date;
 
 public interface IContratService extends IGenericService<Contrat,Integer> {
 
-    ContractDto affectContratToEtudiant (Integer idContrat, String nomE, String prenomE);
+    Contrat affectContratToEtudiant (Integer idContrat, String nomE, String prenomE);
     Integer nbContratsValides(LocalDate startDate, LocalDate endDate);
     void retrieveAndUpdateStatusContrat();
     void archiveExpiredContracts();
