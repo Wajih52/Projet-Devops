@@ -8,6 +8,7 @@ import tn.esprit.kaddemproject.entities.*;
 import tn.esprit.kaddemproject.generic.IGenericServiceImp;
 import tn.esprit.kaddemproject.repositories.ContratRepository;
 import tn.esprit.kaddemproject.repositories.DepartementRepository;
+import tn.esprit.kaddemproject.repositories.UniversiteRepository;
 import tn.esprit.kaddemproject.util.HelperClass;
 
 import java.time.LocalDate;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @AllArgsConstructor
 public class IUniversiteServiceImpl extends IGenericServiceImp<Universite,Integer> implements IUniversiteService{
+    private final UniversiteRepository universiteRepository;
 
     private final ContratRepository contratRepository;
     private final IDepartementServiceImpl departementService;
@@ -70,6 +72,12 @@ public class IUniversiteServiceImpl extends IGenericServiceImp<Universite,Intege
 
         return map;
     }
+
+    @Override
+    public List<Universite> retriveUniversite() {
+        return (List<Universite>) universiteRepository.findAll();
+    }
+
 
     public Boolean isContractBetween(Contrat contrat, LocalDate startDate, LocalDate endDate) {
 

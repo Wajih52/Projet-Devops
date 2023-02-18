@@ -18,6 +18,7 @@ public interface IUniversiteService extends IGenericService<Universite,Integer> 
     List<Departement> retrieveDepartementsByUniversite(Integer idUniversite);
 
     Map<Specialite,Float> getMontantContartEntreDeuxDate(int idUniv, LocalDate startDate, LocalDate endDate);
+    List <Universite>retriveUniversite();
 
 
 

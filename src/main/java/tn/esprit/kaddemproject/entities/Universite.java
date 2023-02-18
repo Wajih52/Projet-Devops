@@ -23,4 +23,9 @@ public class Universite implements Serializable{
     @OneToMany
     private List<Departement> departements;
 
+    public Universite(Integer idUniv, String nomUniv) {
+        super();
+        this.idUniv=idUniv;
+        this.nomUniv=nomUniv;
+    }
 }
