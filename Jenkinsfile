@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'maven'
-    }
-
-  }
+  agent {label 'VagrantAgent'}
   stages {
     stage('Tests') {
 //       parallel {
