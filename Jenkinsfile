@@ -2,12 +2,12 @@ pipeline {
   agent {label 'VagrantAgent'}
   stages {
     stage('Tests') {
-//       parallel {
-//         stage('Unit Testing ') {
-//           steps {
-//             sh 'mvn test -Ptest'
-//           }
-//         }
+      parallel {
+        stage('Unit Testing ') {
+          steps {
+            sh 'mvn test -Ptest'
+          }
+        }
 
         stage('SRC analysis Testing') {
           steps {
