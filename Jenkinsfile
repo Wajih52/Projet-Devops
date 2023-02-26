@@ -64,12 +64,12 @@ pipeline {
             sh 'sudo docker compose version'
                 }
        }
-     stage ('Prune Docker data')
-       {
-                steps {
-            sh 'sudo docker system prune -a --volumes -f'
-                }
-      }
+//      stage ('Prune Docker data')
+//        {
+//                 steps {
+//             sh 'sudo docker system prune -a --volumes -f'
+//                 }
+//       }
      stage ('Start containers')
        {
                 steps {
