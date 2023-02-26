@@ -62,8 +62,6 @@ pipeline {
             sh 'sudo docker info'
            sh 'sudo docker version'
             sh 'sudo docker compose version'
-           sh 'curl --version'
-        sh 'jq --version'
                 }
        }
      stage ('Prune Docker data')
