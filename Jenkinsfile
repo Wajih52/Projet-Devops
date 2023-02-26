@@ -47,7 +47,7 @@ pipeline {
           steps {
            //sh 'sudo docker pull kaddemproject:latest'
 //           sh 'sudo docker tag kaddemproject:latest 192.168.33.10/kaddemproject:latest'
-            sh 'sudo docker push yasmineb1831/kaddemproject1:latest '
+            sh 'sudo docker push yasmineb1831/kaddemproject1:kaddemproject '
           }
         }
 
