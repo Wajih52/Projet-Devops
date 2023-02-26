@@ -35,7 +35,7 @@ services:
     container_name: kaddemproject
     restart: on-failure
     ports:
-      - 9091:9091
+      - 9090:9090
     depends_on:
       - mysqldb
 
