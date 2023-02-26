@@ -59,9 +59,9 @@ pipeline {
        {
                 steps {
 
-            sh 'docker info'
-           sh 'docker version'
-            sh 'docker compose version'
+            sh 'sudo docker info'
+           sh 'sudo docker version'
+            sh 'sudo docker compose version'
            sh 'curl --version'
         sh 'jq --version'
                 }
@@ -69,15 +69,15 @@ pipeline {
      stage ('Prune Docker data')
        {
                 steps {
-            sh 'docker system prune -a --volumes -f'
+            sh 'sudo docker system prune -a --volumes -f'
                 }
       }
      stage ('Start containers')
        {
                 steps {
 
-            sh ' docker compose up -d --no-color --wait'
-            sh 'docker compose ps'
+            sh 'sudo docker compose up -d --no-color --wait'
+            sh 'sudo docker compose ps'
                 }
         }
 
