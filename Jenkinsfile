@@ -1,7 +1,8 @@
 pipeline {
   agent {label 'VagrantAgent'}
   stages {
-    stage('Tests') {
+//     stage('Tests') {
+//     parallel {
 //         stage('Unit Testing ') {
 //           steps {
 //             sh 'mvn test --Ptest'
@@ -13,9 +14,9 @@ pipeline {
 //             sh 'mvn verify sonar:sonar -Dsonar.login=admin -Dsonar.password=Lucifer1831'
 //           }
 //         }
-
-
-    }
+// }
+//
+//     }
 
     stage('Build ') {
       parallel {
