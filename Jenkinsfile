@@ -45,8 +45,8 @@ pipeline {
 
         stage('Deploy image to Nexus') {
           steps {
-                sh 'sudo docker login -Dnexus.login=admin -Dnexus.password=Lucifer1831'
-          sh 'sudo docker pull kaddemproject:latest'
+//                 sh 'sudo docker login -Dnexus.login=admin -Dnexus.password=Lucifer1831'
+//           sh 'sudo docker pull kaddemproject:latest'
           sh 'sudo docker tag kaddemproject:latest 192.168.33.10/kaddemproject:latest'
             sh 'sudo docker push 192.168.33.10:8082/kaddemproject:latest '
           }
