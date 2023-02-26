@@ -39,14 +39,14 @@ services:
     depends_on:
       - mysqldb
 
-  jenkins:
-    user: jenkins
-    image: jenkins/jenkins:lts
-    container_name: jenkins
-    ports:
-      - 8080:8080
-      - 5000:5000
-    volumes:
-      - /home/jenkins/jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: on-failure
+#  jenkins:
+#    user: jenkins
+#    image: jenkins/jenkins:lts
+#    container_name: jenkins
+#    ports:
+#      - 8080:8080
+#      - 5000:5000
+#    volumes:
+#      - /home/jenkins/jenkins_home:/var/jenkins_home
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    restart: on-failure
