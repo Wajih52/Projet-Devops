@@ -43,11 +43,11 @@ pipeline {
           }
         }
 
-        stage('Deploy image to Nexus') {
+        stage('Deploy image to dockerhub') {
           steps {
            //sh 'sudo docker pull kaddemproject:latest'
 //           sh 'sudo docker tag kaddemproject:latest 192.168.33.10/kaddemproject:latest'
-            sh 'sudo docker push 192.168.33.10:8081/kaddemproject1:kaddemproject '
+            sh 'sudo docker push yasmineb1831/kaddemproject1:kaddemproject '
           }
         }
 
