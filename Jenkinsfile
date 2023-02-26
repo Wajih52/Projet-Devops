@@ -59,13 +59,11 @@ pipeline {
        {
                 steps {
 
-            sh ' ' '
-            docker info
-            docker version
-            docker compose version
-            curl --version
-            jq --version
-            ' ' '
+            sh 'docker info'
+           sh 'docker version'
+            sh 'docker compose version'
+           sh 'curl --version'
+        sh 'jq --version'
                 }
        }
      stage ('Prune Docker data')
