@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Unit Testing ') {
           steps {
-            sh 'mvn test -DskipTests'
+            sh 'mvn test --Ptest'
           }
         }
 
@@ -22,7 +22,7 @@ pipeline {
       parallel {
         stage('Build artifact') {
           steps {
-            sh 'mvn clean package -DskipTests'
+            sh 'mvn clean package -Pprod'
           }
         }
 
@@ -39,7 +39,7 @@ pipeline {
       parallel {
         stage('Deploy artifact to Nexus') {
           steps {
-            sh 'mvn deploy -DskipTests'
+            sh 'mvn deploy -Pprod'
           }
         }
 

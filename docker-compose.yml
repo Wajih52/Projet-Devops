@@ -1,14 +1,32 @@
-version: "3"
+version: "3.9"
 
 services:
+
+  nexus:
+    image: sonatype/nexus3:latest
+    container_name: nexus
+    ports:
+      - 8081:8081
+      - 8082:8082
+    volumes:
+      - /home/nexus/nexus-data:/sonatype-work
+    restart: on-failure
+
+  sonar:
+    image: sonarqube:latest
+    container_name: sonar
+    ports:
+      - 9000:9000
+    volumes:
+      - /home/sonarqube/data:/opt/sonarqube/data
+    restart: on-failure
+
   mysqldb:
     container_name: mysqldb
     image: mysql:8
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-    ports:
-      - 3306:3306
     volumes:
       - /home/mysqldata:/var/lib/mysql
 
@@ -20,3 +38,15 @@ services:
       - 9091:9091
     depends_on:
       - mysqldb
+
+  jenkins:
+    user: jenkins
+    image: jenkinsci/blueocean:latest
+    container_name: jenkins
+    ports:
+      - 8080:8080
+      - 5000:5000
+    volumes:
+      - /home/jenkins/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: on-failure
