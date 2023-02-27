@@ -18,8 +18,8 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - /home/sonarqube/data:/opt/sonarqube/data
-    restart: on-failure
+      - /opt/sonarqube/data
+    restart: unless-stopped
 
   mysqldb:
     container_name: mysqldb
@@ -33,7 +33,7 @@ services:
   spring_app:
     image: kaddemproject
     container_name: kaddemproject
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 9090:9090
     depends_on:
