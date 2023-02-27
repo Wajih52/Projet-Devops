@@ -9,11 +9,11 @@ pipeline {
 //           }
 //         }
 
-        stage('SRC analysis Testing') {
-          steps {
-            sh 'mvn verify sonar:sonar -Dsonar.login=admin -Dsonar.password=Lucifer1831'
-          }
-        }
+//         stage('SRC analysis Testing') {
+//           steps {
+//             sh 'mvn verify sonar:sonar -Dsonar.login=admin -Dsonar.password=Lucifer1831'
+//           }
+//         }
 
     stage('Build ') {
       parallel {
@@ -32,14 +32,14 @@ pipeline {
 
     }
 
-//     stage('Deploy') {
-//       parallel {
-//         stage('Deploy artifact to Nexus') {
-//           steps {
-//             sh 'mvn deploy -Pprod'
-//           }
-//         }
-//
+    stage('Deploy') {
+      parallel {
+        stage('Deploy artifact to Nexus') {
+          steps {
+            sh 'mvn deploy -Pprod'
+          }
+        }
+
         stage('Deploy image to dockerhub')
         {
           steps {
@@ -49,15 +49,15 @@ pipeline {
         }
 //
 //
-//      stage ('verify tooling')
-//        {
-//                 steps {
-//
-//             sh 'sudo docker info'
-//            sh 'sudo docker version'
-//             sh 'sudo docker compose version'
-//                 }
-//        }
+     stage ('verify tooling')
+       {
+                steps {
+
+            sh 'sudo docker info'
+           sh 'sudo docker version'
+            sh 'sudo docker compose version'
+                }
+       }
 // //      stage ('Prune Docker data')
 // //        {
 // //                 steps {
@@ -68,7 +68,7 @@ pipeline {
        {
                 steps {
 
-            sh 'sudo docker compose up --no-color --wait'
+            sh 'sudo docker compose up -d --no-color --wait'
             sh 'sudo docker compose ps'
                 }
         }

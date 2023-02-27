@@ -38,7 +38,6 @@ services:
       - 9090:9090
     depends_on:
       - mysqldb
-      -
 #  jenkins:
 #    user: jenkins
 #    image: jenkins/jenkins:lts
