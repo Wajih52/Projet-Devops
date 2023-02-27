@@ -30,15 +30,15 @@ services:
     volumes:
       - /home/mysqldata:/var/lib/mysql
 
-  spring_app:
-    image: kaddemproject
-    container_name: kaddemproject
-    restart: unless-stopped
-    ports:
-      - 9090:9090
-    depends_on:
-      - mysqldb
-
+#  spring_app:
+#    image: kaddemproject
+#    container_name: kaddemproject
+#    restart: unless-stopped
+#    ports:
+#      - 9090:9090
+#    depends_on:
+#      - mysqldb
+      -
 #  jenkins:
 #    user: jenkins
 #    image: jenkins/jenkins:lts
