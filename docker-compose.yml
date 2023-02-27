@@ -1,5 +1,4 @@
 version: "3.9"
-
 services:
 
 #  nexus:
@@ -27,6 +26,8 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
     volumes:
       - /home/mysqldata:/var/lib/mysql
 
@@ -38,7 +39,7 @@ services:
       - 9090:9090
     depends_on:
       - mysqldb
-#  jenkins:
+##  jenkins:
 #    user: jenkins
 #    image: jenkins/jenkins:lts
 #    container_name: jenkins

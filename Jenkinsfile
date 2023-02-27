@@ -9,11 +9,11 @@ pipeline {
 //           }
 //         }
 
-//         stage('SRC analysis Testing') {
-//           steps {
-//             sh 'mvn verify sonar:sonar -Dsonar.login=admin -Dsonar.password=Lucifer1831'
-//           }
-//         }
+        stage('SRC analysis Testing') {
+          steps {
+            sh 'mvn verify sonar:sonar -Dsonar.login=admin -Dsonar.password=Lucifer1831'
+          }
+        }
 
 
         stage('Build artifact') {
@@ -27,13 +27,13 @@ pipeline {
             sh 'sudo docker build -t kaddemproject . '
           }
         }
-      
 
-        stage('Deploy artifact to Nexus') {
-          steps {
-            sh 'mvn deploy -Pprod'
-          }
-        }
+
+//         stage('Deploy artifact to Nexus') {
+//           steps {
+//             sh 'mvn deploy -Pprod'
+//           }
+//         }
 
         stage('Deploy image to dockerhub')
         {
