@@ -32,8 +32,6 @@ pipeline {
 
     }
 
-    stage('Deploy') {
-      parallel {
         stage('Deploy artifact to Nexus') {
           steps {
             sh 'mvn deploy -Pprod'
@@ -43,10 +41,10 @@ pipeline {
         stage('Deploy image to dockerhub')
         {
           steps {
-//           sh' sudo docker tag kaddemproject:latest yasmineb1831/kaddemproject1:kaddemproject'
+            //sh' sudo docker tag kaddemproject:latest yasmineb1831/kaddemproject1:kaddemproject'
             sh 'sudo docker push yasmineb1831/kaddemproject1:kaddemproject '
-          }
-        }
+               }
+       }
 //
 //
      stage ('verify tooling')
@@ -72,11 +70,13 @@ pipeline {
             sh 'sudo docker compose ps'
                 }
         }
-}
+  }
 
-   post {
+   post
+   {
           always {
               cleanWs()
           }
-      }
+   }
+
 }
