@@ -13,7 +13,7 @@ services:
       - /home/data/mysqldb:/var/lib/mysql
 
   spring_app:
-    image: wajihrjb/springproject:1.0
+    image: wajihrjb/springproject:1.1
     container_name: spring
     restart: on-failure
     ports:
