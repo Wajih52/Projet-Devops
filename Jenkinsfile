@@ -1,6 +1,7 @@
 pipeline {
   agent {label 'VagrantAgent'}
-  stages {
+  stages
+  {
 //     stage('Tests') {
 //         stage('Unit Testing ') {
 //           steps {
@@ -39,15 +40,13 @@ pipeline {
 //           }
 //         }
 //
-        stage('Deploy image to dockerhub') {
+        stage('Deploy image to dockerhub')
+        {
           steps {
 //           sh' sudo docker tag kaddemproject:latest yasmineb1831/kaddemproject1:kaddemproject'
             sh 'sudo docker push yasmineb1831/kaddemproject1:kaddemproject '
           }
         }
-
-      }
-    }
 //
 //
 //      stage ('verify tooling')
@@ -73,9 +72,8 @@ pipeline {
 //             sh 'sudo docker compose ps'
 //                 }
 //         }
+}
 
-
-  }
    post {
           always {
               cleanWs()
