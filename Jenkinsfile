@@ -15,8 +15,7 @@ pipeline {
 //           }
 //         }
 
-    stage('Build ') {
-      parallel {
+
         stage('Build artifact') {
           steps {
             sh 'mvn clean package -Pprod'
@@ -28,9 +27,7 @@ pipeline {
             sh 'sudo docker build -t kaddemproject . '
           }
         }
-      }
-
-    }
+      
 
         stage('Deploy artifact to Nexus') {
           steps {
