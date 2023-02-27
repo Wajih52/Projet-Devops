@@ -11,15 +11,15 @@ services:
 #    volumes:
 #      - /home/nexus/nexus-data:/sonatype-work
 #    restart: on-failure
-#
-  sonar:
-    image: sonarqube:latest
-    container_name: sonar
-    ports:
-      - 9000:9000
-    volumes:
-      - /opt/sonarqube/data
-    restart: unless-stopped
+##
+#  sonar:
+#    image: sonarqube:latest
+#    container_name: sonar
+#    ports:
+#      - 9000:9000
+#    volumes:
+#      - /opt/sonarqube/data
+#    restart: unless-stopped
 
   mysqldb:
     container_name: mysqldb

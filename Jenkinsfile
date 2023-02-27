@@ -64,14 +64,14 @@ pipeline {
 // //             sh 'sudo docker system prune -a --volumes -f'
 // //                 }
 // //       }
-//      stage ('Start containers')
-//        {
-//                 steps {
-//
-//             sh 'sudo docker compose up -d --no-color --wait'
-//             sh 'sudo docker compose ps'
-//                 }
-//         }
+     stage ('Start containers')
+       {
+                steps {
+
+            sh 'sudo docker compose up --no-color --wait'
+            sh 'sudo docker compose ps'
+                }
+        }
 }
 
    post {
