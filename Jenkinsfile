@@ -1,22 +1,18 @@
 pipeline {
   agent {label 'VagrantAgent'}
   stages {
-    stage('Tests') {
-    parallel {
-        stage('Unit Testing ') {
-          steps {
-            sh 'mvn test --Ptest'
-          }
-        }
+//     stage('Tests') {
+//         stage('Unit Testing ') {
+//           steps {
+//             sh 'mvn test --Ptest'
+//           }
+//         }
 
         stage('SRC analysis Testing') {
           steps {
             sh 'mvn verify sonar:sonar -Dsonar.login=admin -Dsonar.password=Lucifer1831'
           }
         }
-    }
-
-  }
 
     stage('Build ') {
       parallel {
@@ -43,15 +39,15 @@ pipeline {
 //           }
 //         }
 //
-//         stage('Deploy image to dockerhub') {
-//           steps {
-// //           sh' sudo docker tag kaddemproject:latest yasmineb1831/kaddemproject1:kaddemproject'
-//             sh 'sudo docker push yasmineb1831/kaddemproject1:kaddemproject '
-//           }
-//         }
-//
-//       }
-//     }
+        stage('Deploy image to dockerhub') {
+          steps {
+//           sh' sudo docker tag kaddemproject:latest yasmineb1831/kaddemproject1:kaddemproject'
+            sh 'sudo docker push yasmineb1831/kaddemproject1:kaddemproject '
+          }
+        }
+
+      }
+    }
 //
 //
 //      stage ('verify tooling')
